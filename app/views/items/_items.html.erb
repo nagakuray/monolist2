@@ -4,13 +4,12 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% #TODO 商品画像 %>
             <%= image_tag(item['mediumImageUrls'].first['imageUrl'].gsub('?_ex=128x128','') , alt: item['itemName']) %>
           </div>
         </div>
         <div class="detail">
           <p class="title">
-            <%= item['itemName'] %>
+            <a href=<%= item['itemUrl'] %>; target="_blank"><%= item['itemName'] %></a>
           </p>
         </div>
         <div class="action clearfix">
