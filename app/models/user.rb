@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
 
   # itemをhaveしている場合true, haveしていない場合falseを返す
   def have?(item)
-    haves.include?(item)
+    have_items.include?(item)
   end
   
   # itemをwantする。
@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
   
   # itemをwantしている場合true、wantしていない場合false
   def want?(item)
-    wants.include?(item)
+    want_items.include?(item)
   end
   
 end
