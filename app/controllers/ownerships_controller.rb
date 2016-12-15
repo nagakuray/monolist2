@@ -29,12 +29,10 @@ class OwnershipsController < ApplicationController
     
     unless current_user.have?(@item)
       current_user.have(@item)
-      params[:type] = "Have it"
     end
     
     unless current_user.want?(@item)
       current_user.want(@item)
-      params[:type] = "Want it"
     end
     
 
@@ -49,12 +47,10 @@ class OwnershipsController < ApplicationController
     
     if current_user.have?(@item)
       current_user.unhave(@item)
-      params[:type] = "Have"
     end
     
     if current_user.want?(@item)
       current_user.unwant(@item)
-      params[:type] = "Want"
     end
     
   end
