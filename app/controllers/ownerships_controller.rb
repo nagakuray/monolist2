@@ -12,11 +12,7 @@ class OwnershipsController < ApplicationController
     if @item.new_record?
       
       # TODO 商品情報の取得 ::Ichiba:RakutenWebService:Item.search を用いてください
-      items = RakutenWebService::Ichiba::Item.search(
-        itemCode: params[:item_code],
-      )
-
-      #items = {}
+      items = RakutenWebService::Ichiba::Item.search(itemCode: @item.item_code)
 
       item                  = items.first
       @item.title           = item['itemName']
@@ -33,12 +29,12 @@ class OwnershipsController < ApplicationController
     
     unless current_user.have?
       current_user.have(@item)
-      params[:type] = "Have it"
+#      params[:type] = "Have it"
     end
     
     unless current_user.want?
       current_user.want(@item)
-      params[:type] = "Want it"
+#      params[:type] = "Want it"
     end
     
 
