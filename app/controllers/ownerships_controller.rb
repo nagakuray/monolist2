@@ -28,15 +28,9 @@ class OwnershipsController < ApplicationController
     # Wantボタンが押された時には「Want」が設定されています。
     
     if params[:type] == "Have"
-      unless current_user.have?(@item)
-        current_user.have(@item)
-      end
-    end
-    
-    if params[:type] == "Want"
-      unless current_user.want?(@item)
-        current_user.want(@item)
-      end
+      current_user.have(@item)
+    else
+      current_user.want(@item)
     end
     
   end
@@ -49,15 +43,9 @@ class OwnershipsController < ApplicationController
     # Want itボタンが押された時には「Want」が設定されています。
     
     if params[:type] == "Have"
-      if current_user.have?(@item)
-        current_user.unhave(@item)
-      end
-    end
-    
-    if params[:type] == "Want"
-      if current_user.want?(@item)
-        current_user.unwant(@item)
-      end
+      current_user.unhave(@item)
+    else
+      current_user.unwant(@item)
     end
     
   end
