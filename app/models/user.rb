@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
   
   # itemをwantする。
   def want(item)
-    wants.find_or_create_by(item_id: :item.id)
+    wants.find_or_create_by(item_id: item.id)
   end
 
   # itemのwantを解除する。

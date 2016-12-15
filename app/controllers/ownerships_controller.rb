@@ -27,14 +27,14 @@ class OwnershipsController < ApplicationController
     # params[:type]の値にHaveボタンが押された時には「Have」,
     # Wantボタンが押された時には「Want」が設定されています。
     
-    unless current_user.have?
+    unless current_user.have?(@item)
       current_user.have(@item)
-#      params[:type] = "Have it"
+      params[:type] = "Have it"
     end
     
-    unless current_user.want?
+    unless current_user.want?(@item)
       current_user.want(@item)
-#      params[:type] = "Want it"
+      params[:type] = "Want it"
     end
     
 
@@ -47,12 +47,12 @@ class OwnershipsController < ApplicationController
     # params[:type]の値にHave itボタンが押された時には「Have」,
     # Want itボタンが押された時には「Want」が設定されています。
     
-    if current_user.have?
+    if current_user.have?(@item)
       current_user.unhave(@item)
       params[:type] = "Have"
     end
     
-    if current_user.want?
+    if current_user.want?(@item)
       current_user.unwant(@item)
       params[:type] = "Want"
     end
