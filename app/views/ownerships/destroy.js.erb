@@ -4,8 +4,12 @@
   $(".want-<%= @item.id %>,[item_code='want-<%= @item.item_code %>']").replaceWith("<%= escape_javascript(render('items/want' , item: @item)) %>");
 <% end %>
 
+<% if @want_count.present? %>
+  $("#want_count").html('<%= @want_count.count %>');
+<% end %>
+
+<% if @have_count.present? %>
+  $("#have_count").html('<%= @have_count.count %>');
+<% end %>
+
 $('.btn-have,.btn-want').removeAttr('disabled');
-
-$("#want_count").html('<%= current_user.wants.count %>');
-$("#have_count").html('<%= current_user.haves.count %>');
-
