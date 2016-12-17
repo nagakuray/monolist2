@@ -6,3 +6,6 @@
 
 $('.btn-have,.btn-want').removeAttr('disabled');
 
+$("#want_count").html('<%= current_user.wants.count %>');
+$("#have_count").html('<%= current_user.haves.count %>');
+
